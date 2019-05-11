@@ -4,7 +4,7 @@
 
 - 增加一个待办事项
 
-  ![添加待办事项](.\image\添加待办事项.gif)
+  ![Image text](https://github.com/545480453/ToDoList/blob/master/image/%E5%88%97%E5%87%BA%E6%89%80%E6%9C%89%E7%9A%84%E5%BE%85%E5%8A%9E%E4%BA%8B%E9%A1%B9.gif)
 
 - 删除一个待办事项
 

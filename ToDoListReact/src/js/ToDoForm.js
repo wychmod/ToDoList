@@ -7,6 +7,7 @@ export default class ToDoForm extends React.Component {
         event.preventDefault();
     }
 
+    /*添加新便签*/
     add(event) {
 
         if (event.type == "keyup" && event.keyCode != 13) {
@@ -24,9 +25,12 @@ export default class ToDoForm extends React.Component {
         this.refs.time.value = "";
     }
 
+    /*显示未完成*/
     showdone(event) {
         this.props.showDoneItem();
     }
+
+    /*显示全部*/
     noneshowdone(event) {
         this.props.showNoneItem();
     }

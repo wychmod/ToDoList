@@ -1,18 +1,23 @@
 import React from 'react';
 
 export default class ToDoItem extends React.Component {
+
+    /*删除按钮*/
     delete() {
         this.props.deleteItem(this.props.data.id);
     }
 
+    /*完成按钮*/
     complete() {
         this.props.okItem(this.props.data.id);
     }
 
+    /*编辑按钮*/
     change() {
         this.props.changeItem(this.props.data.id);
     }
 
+    /*编辑完成按钮*/
     update() {
         let txt = this.refs.txt.value;
         this.props.updateItem(this.props.data.id, txt);
@@ -42,6 +47,8 @@ export default class ToDoItem extends React.Component {
             </a></td>)
             txtMessage = (<td><input ref='txt' type='text' className='form-control' placeholder='请输入内容'/></td>)
         }
+
+        /*将priority转化为汉字*/
         if (priority == 1) {
             priorityMessage = (<td>普通</td>)
         }

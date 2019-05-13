@@ -12,6 +12,7 @@ export default class ToDoapp extends React.Component {
             doneTodos: [],
             doneId: 0,
         };
+        /*获取数据库数据*/
         fetch(
             'http://127.0.0.1:8000/tolist/'
         )
@@ -35,6 +36,7 @@ export default class ToDoapp extends React.Component {
         this.getJson = this.getJson.bind(this);
     }
 
+    /*获取数据库数据*/
     getJson(){
         fetch(
             'http://127.0.0.1:8000/tolistp/'
@@ -51,7 +53,7 @@ export default class ToDoapp extends React.Component {
     }
 
 
-
+    /*对便签进行完成任务*/
     okItem(id) {
         this.state.todos.map(item => {
             if (item.id == id) {
@@ -74,12 +76,10 @@ export default class ToDoapp extends React.Component {
             }
             return item;
         });
-        // this.setState({
-        //     todos: this.state.todos
-        // });
         location.reload([false])
     }
 
+    /*判断下层的改变*/
     changeItem(id) {
         this.state.todos.map(item => {
             if (item.id == id) {
@@ -92,6 +92,7 @@ export default class ToDoapp extends React.Component {
         });
     }
 
+    /*更新数据库数据*/
     updateItem(id, txt) {
         this.state.todos.map(item => {
             if (item.id == id) {
@@ -113,12 +114,10 @@ export default class ToDoapp extends React.Component {
             }
             return item;
         });
-        // this.setState({
-        //     todos: this.state.todos
-        // });
         location.reload([false])
     }
 
+    /*对数据库的便签进行删除*/
     deleteItem(id) {
 
         fetch('http://127.0.0.1:8000/todelete/'+id+'/', {
@@ -130,6 +129,7 @@ export default class ToDoapp extends React.Component {
 
     }
 
+    /*展示未完成内容*/
     showDoneItem() {
         let newtodos = this.state.todos.filter((item) => {
             return !(item.done == 1)
@@ -141,6 +141,7 @@ export default class ToDoapp extends React.Component {
         });
     }
 
+    /*展示全部内容*/
     showNoneItem() {
         this.setState({
             todos: this.state.doneTodos,
@@ -148,6 +149,7 @@ export default class ToDoapp extends React.Component {
         });
     }
 
+    /*添加新的便签*/
     addItem(value, priority, endtime) {
         let postdata = JSON.stringify({text: value,
             time: (new Date()).toLocaleDateString(),
@@ -170,8 +172,6 @@ export default class ToDoapp extends React.Component {
         });
 
         location.reload([false])
-
-
 
     }
 
